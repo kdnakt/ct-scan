@@ -27,3 +27,14 @@ code {
         width: 40%;
     }
 }
+
+.quiz_mode {
+    padding: 8px;
+    background-color: springgreen;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    margin: auto 8px;
+}

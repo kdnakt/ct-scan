@@ -1,8 +1,17 @@
 
 export const QuizModes = {
-    // easy: "かんたん",
-    normal: "ふつう",
-    // hard: "むずかしい",
+    // "easy": {
+    //     label: "かんたん",
+    //     maxHeadCount: 5,
+    // },
+    "normal": {
+        label: "ふつう",
+        maxHeadCount: 15,
+    },
+    // "hard": {
+    //     label: "むずかしい",
+    //     maxHeadCount: 100,
+    // },
 } as const
 
 export type QuizMode = keyof typeof QuizModes

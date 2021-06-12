@@ -7,7 +7,7 @@ export const AppMain = () => {
     const [mode, setMode] = useState<QuizMode>("normal")
     return (
         <>
-            <QuizModeSelector setMode={setMode} />
+            <QuizModeSelector setMode={setMode} current={mode} />
             <QuizMain mode={mode} />
         </>
     )

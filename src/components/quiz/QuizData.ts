@@ -19,8 +19,9 @@ export function calcTotalLegCount(data: QuizData): number {
 
 export function createQuizData(mode: QuizMode): QuizData {
     const max = QuizModes[mode].maxHeadCount
-    const crane = random(1, max)
-    const turtle = max - crane
+    const total = random(Math.floor(max / 3), max)
+    const crane = random(1, total)
+    const turtle = total - crane
     return {
         craneCount: crane,
         turtleCount: turtle,

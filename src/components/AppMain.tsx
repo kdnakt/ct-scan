@@ -1,14 +1,15 @@
 import { useState } from "react"
+import { Quiz } from "./quiz/Quiz"
+import { createQuizData } from "./quiz/QuizData"
 import { QuizMain } from "./quiz/QuizMain"
-import { QuizMode } from "./quiz/QuizMode"
-import { QuizModeSelector } from "./quiz/QuizModeSelector"
+import { QuizSelector } from "./quiz/QuizSelector"
 
 export const AppMain = () => {
-    const [mode, setMode] = useState<QuizMode>("normal")
+    const [quiz, setQuiz] = useState<Quiz>({mode: "normal", data: createQuizData("normal")})
     return (
         <>
-            <QuizModeSelector setMode={setMode} current={mode} />
-            <QuizMain mode={mode} />
+            <QuizSelector setQuiz={setQuiz} current={quiz} />
+            <QuizMain quiz={quiz} />
         </>
     )
 }

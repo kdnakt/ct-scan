@@ -1,19 +1,21 @@
 import { Dispatch, FC, SetStateAction } from "react"
+import { Quiz } from "./Quiz"
+import { createQuizData } from "./QuizData"
 import { QuizMode, QuizModes } from "./QuizMode"
 
 type SelectorProps = {
-    setMode: Dispatch<SetStateAction<QuizMode>>,
-    current: QuizMode,
+    setQuiz: Dispatch<SetStateAction<Quiz>>,
+    current: Quiz,
 }
 
 type ModeProps = {
-    setMode: Dispatch<SetStateAction<QuizMode>>,
+    setQuiz: Dispatch<SetStateAction<Quiz>>,
     mode: QuizMode,
     selected: boolean,
 }
 
 const ModeLabel: FC<ModeProps> = ({
-    setMode,
+    setQuiz,
     mode,
     selected,
 }) => {
@@ -22,7 +24,11 @@ const ModeLabel: FC<ModeProps> = ({
         <span className={`quiz_mode quiz_mode_${selected ? "selected" : mode}`}
             onClick={() => {
                 if (!selected && window.confirm(`「${label}」モードに\nかえますか？`)) {
-                    setMode(mode)
+                    const data = createQuizData(mode)
+                    setQuiz({
+                        mode: mode,
+                        data: data
+                    })
                 }
             }}
         >
@@ -31,17 +37,17 @@ const ModeLabel: FC<ModeProps> = ({
     )
 }
 
-export const QuizModeSelector: FC<SelectorProps> = ({
-    setMode,
+export const QuizSelector: FC<SelectorProps> = ({
+    setQuiz,
     current,
 }) => {
     return (
         <>
             <h5 style={{textAlign: 'center'}}>
                 {Object.keys(QuizModes).map(mode => 
-                    <ModeLabel setMode={setMode}
+                    <ModeLabel setQuiz={setQuiz}
                         mode={mode as QuizMode} 
-                        selected={current === mode}
+                        selected={current.mode === mode}
                     />
                 )}
             </h5>

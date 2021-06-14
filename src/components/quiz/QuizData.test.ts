@@ -1,4 +1,4 @@
-import { random } from './QuizData';
+import { calcTotalHeadCount, calcTotalLegCount, QuizData, random } from './QuizData';
 
 test('random returns number between min and max', () => {
     for (let i = 0; i < 10; i++) {
@@ -8,4 +8,22 @@ test('random returns number between min and max', () => {
         expect(actual).toBeLessThanOrEqual(max);
         expect(actual).toBeGreaterThanOrEqual(min);
     }
+});
+
+test('calculate total head count', () => {
+    const data: QuizData = {
+        craneCount: 7,
+        turtleCount: 12,
+    }
+    const actual = calcTotalHeadCount(data);
+    expect(actual).toBe(19);
+});
+
+test('calculate total leg count', () => {
+    const data: QuizData = {
+        craneCount: 7,
+        turtleCount: 12,
+    }
+    const actual = calcTotalLegCount(data);
+    expect(actual).toBe(62);
 });

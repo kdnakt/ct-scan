@@ -20,19 +20,21 @@ export const QuizForm: FC<Props> = ({
         <>
             <span className="answer_label">つる</span>
             <input className="answer_input" type="number" value={crane}
+                data-testid="crane-input"
                 max={total} min={0}
                 onChange={e => setCrane(Number(e.target.value))}
             />
             <br />
             <span className="answer_label">かめ</span>
             <input className="answer_input" type="number" value={turtle}
+                data-testid="turtle-input"
                 max={total} min={0}
                 onChange={e => setTurtle(Number(e.target.value))}
             />
             <br />
             {
                 (quiz.mode === "easy" && (turtle + crane !== total)) ? (
-                    <span className="answer_hint">
+                    <span className="answer_hint" data-testid="hint">
                         {`ヒント：ぜんぶで${total}ひき`}
                     </span>
                 ) : undefined

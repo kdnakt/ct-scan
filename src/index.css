@@ -54,3 +54,32 @@ code {
 .quiz_mode_selected {
     opacity: 0.5;
 }
+
+.answer_label {
+    margin: auto 8px;
+}
+
+.answer_input {
+    border: 0;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 1.3em;
+    border: solid 1px #ccc;
+    margin: 0 0 16px;
+    width: 64px;
+}
+
+.answer_button {
+    border: solid 1px #ccc;
+    border-radius: 3px;
+    padding: 8px 16px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.answer_hint {
+    font-size: 0.8em;
+    margin: 16px;
+}

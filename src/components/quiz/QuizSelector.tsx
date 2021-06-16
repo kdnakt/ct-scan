@@ -45,7 +45,8 @@ export const QuizSelector: FC<SelectorProps> = ({
         <>
             <h5 style={{textAlign: 'center'}}>
                 {Object.keys(QuizModes).map(mode => 
-                    <ModeLabel setQuiz={setQuiz}
+                    <ModeLabel key={mode}
+                        setQuiz={setQuiz}
                         mode={mode as QuizMode} 
                         selected={current.mode === mode}
                     />

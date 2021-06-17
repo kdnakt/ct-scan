@@ -32,13 +32,11 @@ export const QuizForm: FC<Props> = ({
                 onChange={e => setTurtle(Number(e.target.value))}
             />
             <br />
-            {
-                (quiz.mode === "easy" && (turtle + crane !== total)) ? (
-                    <span className="answer_hint" data-testid="hint">
-                        {`ヒント：ぜんぶで${total}ひき`}
-                    </span>
-                ) : undefined
-            }
+            <span className="answer_hint" data-testid="hint">
+                {(quiz.mode === "easy" && (turtle + crane !== total))
+                    ? `ヒント：ぜんぶで${total}ひき` : ``
+                }
+            </span>
             <br />
             <button className="answer_button" onClick={() => {
                 const isOk = crane === data.craneCount && turtle === data.turtleCount

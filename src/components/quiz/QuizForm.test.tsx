@@ -52,3 +52,17 @@ describe('hint only for easy mode', () => {
         expect(hint).not.toHaveTextContent('ヒント')
     })
 })
+
+describe('submit button', () => {
+    it('should disable submit button if both input were zero', () => {
+        const form = render(<QuizForm quiz={{
+            mode: "normal",
+            data: {
+                craneCount: 2,
+                turtleCount: 3,
+            },
+        }} setQuiz={jest.fn} />)
+        const button = form.getByTestId('submit-button')
+        expect(button).toBeDisabled()
+    })
+})

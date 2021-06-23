@@ -1,5 +1,4 @@
-import { fireEvent, getByTestId, render } from "@testing-library/react"
-import { createQuizData } from "./QuizData"
+import { fireEvent, render } from "@testing-library/react"
 import { QuizForm } from "./QuizForm"
 
 describe('hint only for easy mode', () => {

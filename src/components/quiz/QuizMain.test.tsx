@@ -11,7 +11,7 @@ describe('QuizMain', () => {
             },
         }}/>)
         const totalHeads = main.getByTestId('total-heads')
-        expect(totalHeads).toBe(5)
+        expect(totalHeads.textContent).toBe("5")
     })
 
     it('should show total legs count', () => {
@@ -23,6 +23,6 @@ describe('QuizMain', () => {
             },
         }}/>)
         const totalLegs = main.getByTestId('total-legs')
-        expect(totalLegs).toBe(16)
+        expect(totalLegs.textContent).toBe("16")
     })
 })

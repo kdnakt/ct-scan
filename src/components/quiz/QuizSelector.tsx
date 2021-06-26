@@ -14,7 +14,7 @@ type ModeProps = {
     selected: boolean,
 }
 
-const ModeLabel: FC<ModeProps> = ({
+export const ModeLabel: FC<ModeProps> = ({
     setQuiz,
     mode,
     selected,

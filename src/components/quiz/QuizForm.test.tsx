@@ -64,4 +64,32 @@ describe('submit button', () => {
         const button = form.getByTestId('submit-button')
         expect(button).toBeDisabled()
     })
+
+    it("should enable submit button if crane input wasn't zero", () => {
+        const form = render(<QuizForm quiz={{
+            mode: "normal",
+            data: {
+                craneCount: 2,
+                turtleCount: 3,
+            },
+        }} setQuiz={jest.fn} />)
+        const craneInput = form.getByTestId('crane-input')
+        fireEvent.change(craneInput, { target: { value: '2' }})
+        const button = form.getByTestId('submit-button')
+        expect(button).not.toBeDisabled()
+    })
+
+    it("should enable submit button if turtle input wasn't zero", () => {
+        const form = render(<QuizForm quiz={{
+            mode: "normal",
+            data: {
+                craneCount: 2,
+                turtleCount: 3,
+            },
+        }} setQuiz={jest.fn} />)
+        const turtleInput = form.getByTestId('turtle-input')
+        fireEvent.change(turtleInput, { target: { value: '2' }})
+        const button = form.getByTestId('submit-button')
+        expect(button).not.toBeDisabled()
+    })
 })

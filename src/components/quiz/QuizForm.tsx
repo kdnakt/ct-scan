@@ -24,8 +24,9 @@ export const QuizForm: FC<Props> = ({
                 data-testid="crane-input"
                 max={total} min={0}
                 onChange={e => {
-                    setCrane(Number(e.target.value))
-                    setDisabled(crane === 0 && turtle === 0)
+                    const newCrane = Number(e.target.value)
+                    setCrane(newCrane)
+                    setDisabled(newCrane === 0 && turtle === 0)
                 }}
             />
             <br />
@@ -34,8 +35,9 @@ export const QuizForm: FC<Props> = ({
                 data-testid="turtle-input"
                 max={total} min={0}
                 onChange={e => {
-                    setTurtle(Number(e.target.value))
-                    setDisabled(crane === 0 && turtle === 0)
+                    const newTurtle = Number(e.target.value)
+                    setTurtle(newTurtle)
+                    setDisabled(crane === 0 && newTurtle === 0)
                 }}
             />
             <br />

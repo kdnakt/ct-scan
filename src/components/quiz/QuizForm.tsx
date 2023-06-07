@@ -41,12 +41,6 @@ export const QuizForm: FC<Props> = ({
                 }}
             />
             <br />
-            <span className="answer_hint" data-testid="hint">
-                {(quiz.mode === "easy" && (turtle + crane !== total))
-                    ? `ヒント：ぜんぶで${total}ひき` : ``
-                }
-            </span>
-            <br />
             <button className="answer_button" data-testid="submit-button"
                     disabled={disabled}
                     onClick={() => {

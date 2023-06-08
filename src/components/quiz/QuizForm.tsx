@@ -43,7 +43,12 @@ export const QuizForm: FC<Props> = ({
             <br />
             { quiz.mode == "easy" ? (
                 <>
-                    <button className="answer_button bg-info text-white" data-testid="hint-button">
+                    <button className="answer_button bg-info text-white" data-testid="hint-button"
+                        onClick={() => {
+                            window.alert(`ヒント：つるは ${data.craneCount} ひき`)
+                            setCrane(data.craneCount)
+                        }}
+                    >
                         ヒント
                     </button>
                     <br />

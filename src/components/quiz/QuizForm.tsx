@@ -41,8 +41,9 @@ export const QuizForm: FC<Props> = ({
                 }}
             />
             <br />
-            <button className="answer_button" data-testid="submit-button"
+            <button className="answer_button bg-primary text-white" data-testid="submit-button"
                     disabled={disabled}
+                    style={disabled ? {"cursor": "not-allowed", "opacity": 0.5} : {}}
                     onClick={() => {
                 const isOk = crane === data.craneCount && turtle === data.turtleCount
                 if (isOk) {

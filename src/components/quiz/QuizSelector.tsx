@@ -19,9 +19,10 @@ export const ModeLabel: FC<ModeProps> = ({
     mode,
     selected,
 }) => {
-    const label = QuizModes[mode].label
+    const { label, style } = QuizModes[mode]
     return (
-        <span className={`quiz_mode quiz_mode_${selected ? "selected" : mode}`}
+        <span className={`quiz_mode quiz_mode_${selected ? "selected" : mode} ${style}`}
+            style={selected ? {"cursor": "not-allowed"} : {}}
             onClick={() => {
                 if (!selected && window.confirm(`「${label}」モードに\nかえますか？`)) {
                     const data = createQuizData(mode)

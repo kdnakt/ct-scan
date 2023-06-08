@@ -41,6 +41,14 @@ export const QuizForm: FC<Props> = ({
                 }}
             />
             <br />
+            { quiz.mode == "easy" ? (
+                <>
+                    <button className="answer_button bg-info text-white" data-testid="hint-button">
+                        ヒント
+                    </button>
+                    <br />
+                </>
+            ) : undefined }
             <button className="answer_button bg-primary text-white" data-testid="submit-button"
                     disabled={disabled}
                     style={disabled ? {"cursor": "not-allowed", "opacity": 0.5} : {}}

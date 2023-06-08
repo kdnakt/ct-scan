@@ -2,7 +2,7 @@ import { fireEvent, render } from "@testing-library/react"
 import { QuizForm } from "./QuizForm"
 
 describe('hint only for easy mode', () => {
-    it('should show hint for easy mode', () => {
+    it('should show hint button for easy mode', () => {
         const form = render(<QuizForm quiz={{
             mode: "easy",
             data: {
@@ -14,26 +14,9 @@ describe('hint only for easy mode', () => {
         const turtleInput = form.getByTestId('turtle-input')
         fireEvent.change(craneInput, { target: { value: '2' }})
         fireEvent.change(turtleInput, { target: { value: '2' }})
-        const hint = form.getByTestId('hint')
+        const hint = form.getByTestId('hint-button')
         expect(hint).toHaveTextContent('ヒント')
     })
-
-    it('should not show hint for easy mode when total matches', () => {
-        const form = render(<QuizForm quiz={{
-            mode: "easy",
-            data: {
-                craneCount: 2,
-                turtleCount: 3,
-            },
-        }} setQuiz={jest.fn} />)
-        const craneInput = form.getByTestId('crane-input')
-        const turtleInput = form.getByTestId('turtle-input')
-        fireEvent.change(craneInput, { target: { value: '3' }})
-        fireEvent.change(turtleInput, { target: { value: '2' }})
-        const hint = form.getByTestId('hint')
-        expect(hint).not.toHaveTextContent('ヒント')
-    })
-
 
     it('should not show hint for normal mode', () => {
         const form = render(<QuizForm quiz={{
@@ -47,8 +30,8 @@ describe('hint only for easy mode', () => {
         const turtleInput = form.getByTestId('turtle-input')
         fireEvent.change(craneInput, { target: { value: '2' }})
         fireEvent.change(turtleInput, { target: { value: '2' }})
-        const hint = form.getByTestId('hint')
-        expect(hint).not.toHaveTextContent('ヒント')
+        const hint = form.queryByTestId('hint-button')
+        expect(hint).not.toBeInTheDocument()
     })
 })
 

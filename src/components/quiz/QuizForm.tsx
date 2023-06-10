@@ -67,6 +67,19 @@ export const QuizForm: FC<Props> = ({
                     window.alert("ざんねん😱\nもういちど かんがえよう")
                 }
             }}>こたえあわせ</button>
+            <br></br>
+            <button className="answer_button bg-info"
+                onClick={() => {
+                    if (window.confirm("つぎの もんだいを みる")) {
+                        setQuiz({
+                            mode: quiz.mode,
+                            data: createQuizData(quiz.mode)
+                        })
+                        setCrane(0)
+                        setTurtle(0)
+                    }
+                }}
+            >つぎのもんだい</button>
         </>
     )
 }

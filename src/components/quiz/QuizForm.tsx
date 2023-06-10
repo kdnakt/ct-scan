@@ -16,32 +16,28 @@ export const QuizForm: FC<Props> = ({
     const total = calcTotalHeadCount(data)
     const [crane, setCrane] = useState(0)
     const [turtle, setTurtle] = useState(0)
-    const [disabled, setDisabled] = useState(true);
+    const disabled = crane == 0 && turtle == 0
     return (
         <>
             <span className="answer_label">つる</span>
-            <input className="answer_input" type="number" value={crane}
-                data-testid="crane-input"
-                max={total} min={0}
-                onChange={e => {
-                    const newCrane = Number(e.target.value)
-                    setCrane(newCrane)
-                    setDisabled(newCrane === 0 && turtle === 0)
-                }}
-            />
+            <button className="answer_button" disabled={crane <= 0}
+                onClick={() => setCrane(crane - 1)}
+            >-</button>
+            <span style={{margin: "0 16px"}}>{crane}</span>
+            <button className="answer_button" disabled={total <= crane}
+                onClick={() => setCrane(crane + 1)}
+            >+</button>
             <br />
             <span className="answer_label">かめ</span>
-            <input className="answer_input" type="number" value={turtle}
-                data-testid="turtle-input"
-                max={total} min={0}
-                onChange={e => {
-                    const newTurtle = Number(e.target.value)
-                    setTurtle(newTurtle)
-                    setDisabled(crane === 0 && newTurtle === 0)
-                }}
-            />
+            <button className="answer_button" disabled={turtle <= 0}
+                onClick={() => setTurtle(turtle - 1)}
+            >-</button>
+            <span style={{margin: "0 16px"}}>{turtle}</span>
+            <button className="answer_button" disabled={total <= turtle}
+                onClick={() => setTurtle(turtle + 1)}
+            >+</button>
             <br />
-            { quiz.mode == "easy" ? (
+            { quiz.mode === "easy" ? (
                 <>
                     <button className="answer_button bg-info text-white" data-testid="hint-button"
                         onClick={() => {

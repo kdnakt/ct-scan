@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction, useState } from "react";
+import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
 import { Quiz } from "./Quiz";
 import { calcTotalHeadCount, createQuizData } from "./QuizData";
 
@@ -16,6 +16,10 @@ export const QuizForm: FC<Props> = ({
     const total = calcTotalHeadCount(data)
     const [crane, setCrane] = useState(0)
     const [turtle, setTurtle] = useState(0)
+    useEffect(() => {
+        setCrane(0)
+        setTurtle(0)
+    }, [quiz.mode])
     const disabled = crane == 0 && turtle == 0
     return (
         <>

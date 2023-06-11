@@ -28,7 +28,7 @@ export const ModeLabel: FC<ModeProps> = ({
                     const data = createQuizData(mode)
                     setQuiz({
                         mode: mode,
-                        data: data
+                        data: data,
                     })
                 }
             }}

@@ -6,7 +6,10 @@ import { QuizMain } from "./quiz/QuizMain"
 import { QuizSelector } from "./quiz/QuizSelector"
 
 export const AppMain = () => {
-    const [quiz, setQuiz] = useState<Quiz>({mode: "normal", data: createQuizData("normal")})
+    const [quiz, setQuiz] = useState<Quiz>({
+        mode: "normal",
+        data: createQuizData("normal"),
+    })
     return (
         <>
             <QuizSelector setQuiz={setQuiz} current={quiz} />

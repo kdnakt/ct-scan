@@ -12,8 +12,13 @@ export const QuizModes = {
     },
     "hard": {
         label: "むずかしい",
-        maxHeadCount: 100,
+        maxHeadCount: 50,
         style: "bg-warning text-dark",
+    },
+    "veryhard": {
+        label: "ちょうむず",
+        maxHeadCount: 150,
+        style: "bg-danger text-white",
     },
 } as const
 

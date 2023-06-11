@@ -101,6 +101,10 @@ code {
     background-color: #17a2b8!important;
 }
 
+.bg-danger {
+    background-color: #dc3545!important;
+}
+
 .text-white {
     color: #fff!important;
 }

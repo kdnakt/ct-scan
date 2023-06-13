@@ -20,7 +20,7 @@ export const QuizForm: FC<Props> = ({
         setCrane(0)
         setTurtle(0)
     }, [quiz.mode])
-    const disabled = crane == 0 && turtle == 0
+    const disabled = crane === 0 && turtle === 0
     const isHard = quiz.mode === "hard" || quiz.mode === "veryhard"
     return (
         <>
